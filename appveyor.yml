@@ -1,0 +1,15 @@
+version: '{build}'
+
+image:
+  - Visual Studio 2015
+
+configuration:
+  - Debug
+  - Release
+
+build:
+  project: src/com-port-api/com-port-api.sln
+  verbosity: minimal
+  
+test_script:
+  - vstest.console /logger:Appveyor src/com-port-api/%CONFIGURATION%/com-port-api-test.dll
